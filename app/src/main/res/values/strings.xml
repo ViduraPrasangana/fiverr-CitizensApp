@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Citizens App</string>
+    <string name="title_activity_login">Citizens App</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid email</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_confirm_password">Password does not match</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="invalid_email">Not a valid email</string>
+    <string name="invalid_address">Not a valid address</string>
+    <string name="invalid_first_name">Not a valid First Name</string>
+    <string name="invalid_last_name">Not a valid Last Name</string>
+    <string name="register_failed">"Registration failed"</string>
+</resources>
