@@ -47,9 +47,10 @@ public class RegisterRepository {
         dataSource.register(user, password,this,registerViewModel);
 
     }
-    public void setResult(Result<LoggedInUser> result ){
+    public void setResult(Result<LoggedInUser> result,RegisterViewModel registerViewModel ){
         if (result instanceof Result.Success) {
             setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
         }
+        registerViewModel.setResult(result);
     }
 }

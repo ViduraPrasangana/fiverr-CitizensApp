@@ -16,4 +16,22 @@
     <string name="invalid_first_name">Not a valid First Name</string>
     <string name="invalid_last_name">Not a valid Last Name</string>
     <string name="register_failed">"Registration failed"</string>
+
+    <string name="greeting">Good Morning</string>
+    <string name="menu_item">Menu Item</string>
+    <string name="aim1">"Provides better services for citizens, focusing on the emergency services, rather than dialling a number. We can also use a modern mobile app, which enables us to send pictures of emergency situations."</string>
+    <string name="aim2">Another aim is to improve the response time for emergency services to reach the situation as possible once alerted via app.</string>
+    <string name="aim3">The emergency service are more accurate due to the procedures emergencies are reported to which is more accurate. The fact that emergency services receive better information reflects on how they will be able to attend efficiently on the emergency scene.</string>
+    <string name="general_title">Aims</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="expand_title_1">Security Questions</string>
+    <string name="expand_title_2">Change Language</string>
+    <string name="expand_title_3">Change Password</string>
+    <string name="title_complaints">Give your FEEDBACKS or COMPLAINTS</string>
+    <string name="payments_title">Pay Bills</string>
+    <string name="title_confirm_details">Confirm Your Details</string>
+    <string name="channel_name">Payment</string>
+
 </resources>

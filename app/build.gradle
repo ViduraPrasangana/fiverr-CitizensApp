@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -32,9 +33,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //Firebase analytics
     implementation 'com.google.firebase:firebase-analytics:17.2.3'
@@ -50,5 +53,29 @@ dependencies {
 
     //BlurEffect
     implementation 'com.github.ViduraPrasangana:BlurImageView2:1.0.0'
+
+    //Tab Layout
+    implementation 'com.github.ViduraPrasangana.SmartTabLayout:library:1.8.1'
+    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.7.0@aar'
+
+    //ExpandableLayout
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
+
+    //Dropdown
+    implementation "com.github.skydoves:powerspinner:1.0.4"
+
+    //MaterialEditText
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+
+    //Credit card
+    implementation 'com.craftman.cardform:cardform:0.0.2'
+
+    //CameraKit
+    implementation 'com.camerakit:camerakit:1.0.0-beta3.11'
+    implementation 'com.camerakit:jpegkit:0.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+
+    //SquareCamera
+    implementation 'com.github.boxme:squarecamera:1.1.0'
 
 }

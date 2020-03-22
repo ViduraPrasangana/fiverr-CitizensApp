@@ -1,5 +1,7 @@
 package com.adamhussain.citizensapp.user.data.model;
 
+import com.google.firebase.database.Exclude;
+
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
  */
@@ -33,6 +35,7 @@ public class LoggedInUser {
         return userId;
     }
 
+    @Exclude
     public String getDisplayName() {
         return firstName + " " + lastName;
     }

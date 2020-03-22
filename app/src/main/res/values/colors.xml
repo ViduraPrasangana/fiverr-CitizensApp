@@ -8,4 +8,32 @@
     <color name="btnPrimary">#C100469B</color>
     <color name="btnSecondary">#8A0079C2</color>
     <color name="indicator">#002CD6</color>
+
+    <color name="logout_dark_red">#BA0000</color>
+    <color name="logout_light_red">#FF0303</color>
+
+    <color name="greeting_dark">#0C00BA</color>
+    <color name="greeting_light">#0325FF</color>
+
+    <color name="white">#FFF</color>
+    <color name="grey">#C8C8C8</color>
+    <color name="light_blue">#64B5F6</color>
+    <color name="text_color">#575757</color>
+
+    <color name="logo_bg">#3c58a7</color>
+
+    <color name="aim_color_1">#FFAB00</color>
+    <color name="aim_color_2">#64DD17</color>
+    <color name="aim_color_3">#0091EA</color>
+
+    <color name="general_bg_start">#4DD0E1</color>
+    <color name="general_bg_end">#7986CB</color>
+
+    <color name="drop_down_dark">#2C2C2C</color>
+    <color name="drop_down">#DC515151</color>
+    <color name="colorPrimaryReallyDark">#020A36</color>
+    <color name="dark_blue">#001A79</color>
+    <color name="holo_red_dark">#FFCC0000</color>
+    <color name="gray_dark">#2C2C2C</color>
+
 </resources>

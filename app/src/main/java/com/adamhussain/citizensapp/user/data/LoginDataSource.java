@@ -70,6 +70,7 @@ public class LoginDataSource {
                             loginRepository.setResult(new Result.Success<>(dataSnapshot.getValue(LoggedInUser.class)),loginViewModel);
                         }else {
                             loginRepository.setResult(new Result.Error(new IOException("User data is empty")),loginViewModel);
+                            logout();
                         }
                     }
 

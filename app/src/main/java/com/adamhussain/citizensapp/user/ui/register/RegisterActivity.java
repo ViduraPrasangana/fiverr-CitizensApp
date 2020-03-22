@@ -1,8 +1,10 @@
 package com.adamhussain.citizensapp.user.ui.register;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -18,11 +20,14 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.adamhussain.citizensapp.home.MainActivity;
 import com.adamhussain.citizensapp.R;
+import com.jgabrielfreitas.core.BlurImageView;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private static final int BLUR_FINAL_VALUE_LOGIN = 20;
+    private static int BLUR_CURRENT_VALUE = 0;
     private RegisterViewModel registerViewModel;
-
+    private BlurImageView bg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +44,15 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText passwordConfirmEditText = findViewById(R.id.passwordConfirm);
         final Button registerButton = findViewById(R.id.register);
         final Button loginButton = findViewById(R.id.login);
+        final Button reset = findViewById(R.id.reset);
+        bg = findViewById(R.id.bg);
         registerButton.setEnabled(false);
-//        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                initializeBlur();
+            }
+        },5000);
         registerViewModel.getRegisterFormState().observe(this, new Observer<RegisterFormState>() {
 
 
@@ -82,14 +93,16 @@ public class RegisterActivity extends AppCompatActivity {
 //                loadingProgressBar.setVisibility(View.GONE);
                 if (registerResult.getError() != null) {
                     showRegisterFailed(registerResult.getError());
+                    Toast.makeText(RegisterActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                 }
                 if (registerResult.getSuccess() != null) {
-                    updateUiWithUser(registerResult.getSuccess());
+                    updateUiWithUser();
+                    Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                 }
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
-                finish();
+
             }
         });
 
@@ -125,7 +138,6 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                loadingProgressBar.setVisibility(View.VISIBLE);
                 registerViewModel.register(emailEditText.getText().toString(),
                         passwordEditText.getText().toString(),
                         firstNameEditText.getText().toString(),
@@ -140,16 +152,48 @@ public class RegisterActivity extends AppCompatActivity {
                 supportFinishAfterTransition();
             }
         });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                emailEditText.setText("");
+                passwordConfirmEditText.setText("");
+                passwordEditText.setText("");
+                addressEditText.setText("");
+                firstNameEditText.setText("");
+                lastNameEditText.setText("");
+            }
+        });
     }
 
-    private void updateUiWithUser(RegisteredUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+    private void updateUiWithUser() {
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     private void showRegisterFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    private void initializeBlur(){
+        new ValueAnimator();
+        final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, BLUR_FINAL_VALUE_LOGIN);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                System.out.println(valueAnimator.getAnimatedValue());
+                int value = (int) valueAnimator.getAnimatedValue();
+                bg.setBlur(value);
+                BLUR_CURRENT_VALUE = value;
+            }
+        });
+        valueAnimator.setDuration(5000);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                valueAnimator.start();
+
+            }
+        }, 100);
     }
 }

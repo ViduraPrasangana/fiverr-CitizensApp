@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.account_operation.fragment.EditDetailsFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="@color/white">
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <LinearLayout
+                   android:id="@+id/questions_exp_button"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="?android:attr/selectableItemBackground"
+                   android:clickable="true"
+                   android:gravity="start|center"
+                   android:orientation="vertical"
+                   android:padding="15dp">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="@string/expand_title_1"
+                       android:textSize="25sp" />
+
+                   <net.cachapa.expandablelayout.ExpandableLayout
+                       android:id="@+id/exp_lay_questions"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       app:el_duration="1000"
+                       app:el_parallax="0.5">
+
+                       <include layout="@layout/subfragment_security_questions"/>
+
+                   </net.cachapa.expandablelayout.ExpandableLayout>
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="@android:color/darker_gray"/>
+               <LinearLayout
+                   android:id="@+id/languages_exp_button"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="?android:attr/selectableItemBackground"
+                   android:clickable="true"
+                   android:gravity="start|center"
+                   android:orientation="vertical"
+                   android:padding="15dp">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="@string/expand_title_2"
+                       android:textSize="25sp" />
+
+                   <net.cachapa.expandablelayout.ExpandableLayout
+                       android:id="@+id/exp_lay_languages"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       app:el_duration="1000"
+                       app:el_parallax="0.5">
+
+                       <include layout="@layout/subfragment_languages"/>
+
+                   </net.cachapa.expandablelayout.ExpandableLayout>
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="@android:color/darker_gray"/>
+               <LinearLayout
+                   android:id="@+id/change_pass_exp_button"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="?android:attr/selectableItemBackground"
+                   android:clickable="true"
+                   android:gravity="start|center"
+                   android:orientation="vertical"
+                   android:padding="15dp">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="@string/expand_title_3"
+                       android:textSize="25sp" />
+
+                   <net.cachapa.expandablelayout.ExpandableLayout
+                       android:id="@+id/exp_lay_change_pass"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       app:el_duration="1000"
+                       app:el_parallax="0.5">
+
+                       <include layout="@layout/subfragment_change_pass"/>
+
+                   </net.cachapa.expandablelayout.ExpandableLayout>
+
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="@android:color/darker_gray"/>
+
+
+           </LinearLayout>
+       </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

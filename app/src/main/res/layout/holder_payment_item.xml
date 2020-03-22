@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:elevation="10dp">
+    <LinearLayout
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:selectableItemBackground">
+        <ImageView
+            android:id="@+id/payment_img"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/gas_bills"/>
+        <TextView
+            android:id="@+id/payment_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Title"
+            android:gravity="center"
+            android:textSize="30dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

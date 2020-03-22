@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.adamhussain.citizensapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -8,8 +13,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".user.ui.register.RegisterActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
+        <activity android:name=".home.emergency_service.fragment.LiveCameraActivity"></activity>
+        <activity android:name=".home.payment.ConfirmDetailsActivity" />
+        <activity android:name=".home.payment.PayActivity" />
+        <activity android:name=".home.payment.PaymentsActivity" />
+        <activity android:name=".home.general.GeneralActivity" />
+        <activity android:name=".home.emergency_service.EmergencyActivity" />
+        <activity android:name=".home.complaint.ComplaintsActivity" />
+        <activity android:name=".home.account_operation.AccountSettingsActivity" />
+        <activity android:name=".user.ui.register.RegisterActivity" />
+        <activity android:name="com.desmond.squarecamera.CameraActivity" />
         <activity
             android:name=".user.ui.login.LoginActivity"
             android:label="@string/title_activity_login">
@@ -19,9 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.MainActivity">
-
-        </activity>
+        <activity android:name=".home.MainActivity" />
     </application>
 
 </manifest>

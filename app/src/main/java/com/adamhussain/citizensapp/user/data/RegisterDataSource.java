@@ -17,7 +17,7 @@ import java.util.Objects;
  */
 public class RegisterDataSource {
 
-    public void register(final LoggedInUser user, String password, final RegisterRepository registerRepository, RegisterViewModel registerViewModel) {
+    public void register(final LoggedInUser user, String password, final RegisterRepository registerRepository, final RegisterViewModel registerViewModel) {
 
         try {
             // TODO: handle loggedInUser authentication
@@ -31,21 +31,21 @@ public class RegisterDataSource {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
                                     user.setUserId(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()));
-                                    registerRepository.setResult(new Result.Success<>(user));
+                                    registerRepository.setResult(new Result.Success<>(user),registerViewModel);
                                 }else {
-                                    registerRepository.setResult(new Result.Error(task.getException()));
+                                    registerRepository.setResult(new Result.Error(task.getException()),registerViewModel);
                                 }
                             }
                         });
                     }else {
-                        registerRepository.setResult(new Result.Error(task.getException()));
+                        registerRepository.setResult(new Result.Error(task.getException()),registerViewModel);
                     }
                 }
             });
 
         } catch (Exception e) {
             FirebaseAuth.getInstance().signOut();
-            registerRepository.setResult(new Result.Error(e));
+            registerRepository.setResult(new Result.Error(e),registerViewModel);
         }
     }
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages" >
+        <item>English</item>
+        <item>Spanish</item>
+        <item>French</item>
+        <item>Italian</item>
+        <item>Hindi</item>
+        <item>Urdu</item>
+    </string-array>
+
+    <string-array name="questions_1">
+        <item>What was your childhood nickname?</item>
+        <item>What school did you attend for sixth grade?</item>
+        <item>In what city or town did your mother and father meet?</item>
+    </string-array>
+    <string-array name="questions_2">
+        <item>What was your dream job as a child?</item>
+        <item>Who was your childhood hero?</item>
+        <item>What is your grandmother\'s first name?</item>
+    </string-array>
+    <string-array name="questions_3">
+        <item>What is your pet\'s name?</item>
+        <item>In what year was your father born?</item>
+        <item>What is your mother\'s maiden name?</item>
+    </string-array>
+</resources>

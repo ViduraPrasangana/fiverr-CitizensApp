@@ -2,6 +2,7 @@ package com.adamhussain.citizensapp.user.data;
 
 import com.adamhussain.citizensapp.user.data.model.LoggedInUser;
 import com.adamhussain.citizensapp.user.ui.login.LoginViewModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -12,6 +13,7 @@ public class LoginRepository {
     private static volatile LoginRepository instance;
 
     private LoginDataSource dataSource;
+    private OnUserUpdateListener userUpdateListener;
 
     // If user credentials will be cached in local storage, it is recommended it be encrypted
     // @see https://developer.android.com/training/articles/keystore
@@ -44,6 +46,7 @@ public class LoginRepository {
 
     void setLoggedInUser(LoggedInUser user) {
         this.user = user;
+        this.user.setUserId(FirebaseAuth.getInstance().getCurrentUser().getUid());
         // If user credentials will be cached in local storage, it is recommended it be encrypted
         // @see https://developer.android.com/training/articles/keystore
     }
@@ -59,12 +62,22 @@ public class LoginRepository {
     }
     public void setResult(Result<LoggedInUser> result, LoginViewModel loginViewModel){
         if (result instanceof Result.Success) {
+            System.out.println("Hell yeah");
             setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
+            if(userUpdateListener!=null) userUpdateListener.onUserUpdated(getUser());
         }
         loginViewModel.setResult(result);
     }
 
     public void fetchUser(LoginViewModel loginViewModel) {
         dataSource.fetchUserFromDB(loginViewModel,this);
+    }
+
+    public void setUserUpdateListener(OnUserUpdateListener userUpdateListener) {
+        this.userUpdateListener = userUpdateListener;
+    }
+
+    public interface OnUserUpdateListener{
+        void onUserUpdated(LoggedInUser user);
     }
 }
